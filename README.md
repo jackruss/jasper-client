@@ -13,9 +13,9 @@ npm install http://github.com/jackruss/jasper-client
 
 ## Usage
 
-### runReport(reportName, reportDirectory, reportParams, callback)
+#### runReport(reportName, reportDirectory, reportParams, callback)
 
-*Arguments*
+**Arguments**
 
 * `reportName` - Name of the report
 * `reportDirectory` - Directory where report is located
