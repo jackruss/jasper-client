@@ -1,0 +1,22 @@
+
+------=_Part_257363_1000674874.1414072259780
+Content-Type: text/xml; charset=UTF-8
+Content-Transfer-Encoding: binary
+Content-Id: <31C9C6A89682D8658E0157B7209EEF90>
+
+<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><ns1:runReportResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://reports.server.com/jasperserver/services/repository"><runReportReturn xsi:type="xsd:string">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;operationResult version=&quot;2.0.1&quot;&gt;
+	&lt;returnCode&gt;&lt;![CDATA[0]]&gt;&lt;/returnCode&gt;
+&lt;/operationResult&gt;
+</runReportReturn></ns1:runReportResponse></soapenv:Body></soapenv:Envelope>
+------=_Part_257363_1000674874.1414072259780
+Content-Type: application/json
+Content-Transfer-Encoding: binary
+Content-Id: <report>
+
+{
+  "foo": 123,
+  "bar": "other stuff"
+}
+
+------=_Part_257363_1000674874.1414072259780--

@@ -1,0 +1,7 @@
+<request operationName="runReport" locale="en">
+  <argument name="RUN_OUTPUT_FORMAT">PDF</argument>
+  <resourceDescriptor name="" wsType="" uriString="/Reports/directory/users_report">
+    <label>null</label>
+    <parameter name="users">1</parameter>
+  </resourceDescriptor>
+</request>
