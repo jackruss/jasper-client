@@ -12,6 +12,7 @@
     "reports",
     "pdf"
   ],
+  "repository": "https://github.com/jackruss/jasper-client.git",
   "author": "Stokes Player and Brent Cobb",
   "license": "MIT",
   "devDependencies": {
