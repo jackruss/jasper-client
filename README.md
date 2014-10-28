@@ -13,6 +13,21 @@ npm install http://github.com/jackruss/jasper-client
 
 ## Usage
 
+### Configuration
+
+Currently, the only configuration parameter is the url to the Jasper server itself.  If you are using basic auth to secure
+the server, then embed it in the url.
+
+```
+var jasper = require('jasper-client');
+
+var jasperUrl = 'http://user:pass@jasper.myserver.com';
+
+var jasperClient = jasper({url: jasperUrl});
+
+```
+
+
 #### runReport(reportName, reportDirectory, reportParams, callback)
 
 **Arguments**
@@ -27,13 +42,17 @@ stream if the report request is a success.
 var fs = require('fs'),
   jasper = require('jasper-client');
 
+var jasperUrl = 'http://jasper.myserver.com';
+
+var jasperClient = jasper({url: jasperUrl});
+
 var reportName = 'test_report';
 var reportDirectory = '/Reports/directory';
 var reportParams =  { foo: 'bar'};
 
 var output = fs.createWriteStream('report.pdf');
 
-jasper.runReport(reportName, reportDirectory, reportParams, function(err, result) {
+jasperClient.runReport(reportName, reportDirectory, reportParams, function(err, result) {
   result.pipe(output);
 });
 
