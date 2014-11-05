@@ -4,7 +4,7 @@ var expect = require('expect.js'),
 
 describe('requests', function () {
 
-  var requests = require('../lib/requests');
+  var requests = require('../lib/soapRequests');
 
   it('should create runReport request', function () {
     var result = requests.runReport('users_report', '/Reports/directory', { "users": "1" });

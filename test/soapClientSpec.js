@@ -4,7 +4,7 @@ var expect = require('expect.js'),
 
 describe('client', function () {
 
-  var client = require('../lib/client');
+  var client = require('../lib/soapClient');
 
   it('should run a report', function (done) {
 

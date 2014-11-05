@@ -15,15 +15,18 @@ npm install http://github.com/jackruss/jasper-client
 
 ### Configuration
 
-Currently, the only configuration parameter is the url to the Jasper server itself.  If you are using basic auth to secure
-the server, then embed it in the url.
+The client will default to using the REST API that was introduced with Jasper Reports 5.0.  If you use an older version that
+only has the SOAP interface, then set the `soap` option to `true`.
+
+* `url` - URL to the jasper server. Embed basic auth in the url if used.
+* `soap` - Set to `true` if you use and old version of Jasper Reports and need to fall back to using the SOAP API, Defaults to `false`
 
 ```
 var jasper = require('jasper-client');
 
 var jasperUrl = 'http://user:pass@jasper.myserver.com';
 
-var jasperClient = jasper({url: jasperUrl});
+var jasperClient = jasper({url: jasperUrl, soap: false});
 
 ```
 

@@ -17,7 +17,7 @@ describe('soap', function () {
     nock.restore();
   });
 
-  var soap = require('../lib/soap');
+  var soap = require('../lib/soapService');
 
   it('should make soap request', function (done) {
 

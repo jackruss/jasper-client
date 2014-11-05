@@ -1,7 +1,7 @@
 "use strict";
 
-var soap = require('./lib/soap'),
-  requests = require('./lib/requests');
+var soapService = require('./lib/soapService'),
+  soapRequests = require('./lib/soapRequests');
 
 module.exports = function(options) {
 
@@ -9,5 +9,10 @@ module.exports = function(options) {
     throw new Error('Must supply url for jasper server');
   }
 
-  return require('./lib/client')(soap(options.url), requests);
+  if (options.soap === true) {
+    return require('./lib/soapClient')(soapService(options.url), soapRequests);
+  } else {
+    return require('./lib/restClient')(options.url);
+  }
+
 };
