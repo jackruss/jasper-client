@@ -184,4 +184,40 @@ describe('rest', function () {
     });
   });
 
+  it('should reject if status is failed after first poll', function(done) {
+    var endpoint = 'http://jasper';
+
+    var client = rest(endpoint, 1000);
+
+    var reportRequest = {
+      status: "queued",
+      requestId: "1e9aaa54-4e57-46e9-bb09-ac1ffea61aaf"
+    };
+
+    var reportStatus = {
+      status: "failed",
+      errorDescriptor: {
+        message: "Failed report",
+        errorCode: "error",
+        parameters: [
+          "stack trace here"
+        ]
+      }
+    };
+
+    var jasper = nock(endpoint)
+      .post("/rest_v2/reportExecutions")
+      .reply(200, reportRequest, { "Content-Type": "application/json", "Set-Cookie": "JSESSIONID=ABC123; HttpOnly" })
+      .get("/rest_v2/reportExecutions/" + reportRequest.requestId)
+      .reply(200, reportStatus, { "Content-Type": "application/json"});
+
+    client.runReport('testReport', '/report/samples/', { "id": "123"}, function(err, result) {
+      expect(err).to.be.ok();
+      expect(result).not.to.be.ok();
+      console.log(err);
+      jasper.done();
+      done();
+    });
+  });
+
 });
