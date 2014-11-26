@@ -123,8 +123,15 @@ describe('rest', function () {
       expect(err).not.to.be.ok();
       expect(result).to.be.ok();
       expect(result.readable).to.be(true);
-      jasper.done();
-      done();
+
+      var writer = es.writeArray(function(err, array) {
+        expect(array[0].toString()).to.eql("this is a test string");
+        jasper.done();
+        done();
+      });
+
+      result.pipe(writer);
+
     });
   });
 
@@ -173,9 +180,10 @@ describe('rest', function () {
       expect(err).not.to.be.ok();
       expect(result).to.be.ok();
       expect(result.readable).to.be(true);
-      jasper.done();
+
       var writer = es.writeArray(function(err, array) {
         expect(array[0].toString()).to.eql("this is a test string");
+        jasper.done();
         done();
       });
 
@@ -214,7 +222,6 @@ describe('rest', function () {
     client.runReport('testReport', '/report/samples/', { "id": "123"}, function(err, result) {
       expect(err).to.be.ok();
       expect(result).not.to.be.ok();
-      console.log(err);
       jasper.done();
       done();
     });
