@@ -1,6 +1,6 @@
 {
   "name": "jasper-client",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Client for a Jasper report server that uses the SOAP client to run reports",
   "main": "index.js",
   "scripts": {
